@@ -1,0 +1,27 @@
+server:
+  port: 8888
+management:
+  endpoint:
+    metrics.enabled: true
+    prometheus.enabled: true
+  endpoints.web.exposure.include: "*"
+  metrics.export.prometheus.enabled: true
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/MilczekT1/config-git
+          search-paths:
+            - 'account-management'
+            - 'budget-management'
+            - 'family-management'
+            - 'mail'
+            - 'password-management'
+            - 'mvc'
+  zipkin:
+    enabled: false
+budget:
+  chassis:
+    http-logging:
+      enabled: true
