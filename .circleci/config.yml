@@ -65,12 +65,12 @@ jobs:
           name: Build and push docker image
           command: |
             VERSION=$(mvn help:evaluate -s .circleci/settings.xml -Dexpression=project.version -q -DforceStdout)
-            TAG=$CIRCLE_PROJECT_REPONAME-$VERSION-$CIRCLE_BUILD_NUM-PR
+            TAG=config-server-$VERSION-$CIRCLE_BUILD_NUM-PR
             if [ "$CIRCLE_BRANCH" == "master" ]; then
-              TAG=$CIRCLE_PROJECT_REPONAME-$VERSION
+              TAG=config-server-$VERSION
             fi
             if [ "$CIRCLE_BRANCH" == "develop" ]; then
-              TAG=$CIRCLE_PROJECT_REPONAME-$VERSION-$CIRCLE_BUILD_NUM
+              TAG=config-server-$VERSION-$CIRCLE_BUILD_NUM
             fi
 
             docker login -u $DOCKER_USER -p $DOCKER_PASS
