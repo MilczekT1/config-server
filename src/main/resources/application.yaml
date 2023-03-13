@@ -14,6 +14,7 @@ spring:
       server:
         git:
           uri: https://github.com/MilczekT1/config-git
+          default-label: master
           search-paths:
             - 'account-management'
             - 'budget-management'
