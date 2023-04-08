@@ -1,11 +1,11 @@
 package pl.konradboniecki.configserver;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.config.server.EnableConfigServer;
+import pl.konradboniecki.chassis.ChassisApplication;
 
 @EnableConfigServer
-@SpringBootApplication(scanBasePackages = "pl.konradboniecki")
+@ChassisApplication
 public class ConfigServerApplication {
 
     public static void main(String[] args) {
