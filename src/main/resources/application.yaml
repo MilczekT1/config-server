@@ -1,17 +1,20 @@
 server:
   port: 8888
+  http2:
+    enabled: true
 management:
   endpoint:
     metrics.enabled: true
     prometheus.enabled: true
   endpoints.web.exposure.include: "*"
-  metrics.export.prometheus.enabled: true
+  prometheus.metrics.export.enabled: true
 spring:
   cloud:
     config:
       server:
         git:
           uri: https://github.com/MilczekT1/config-git
+          default-label: master
           search-paths:
             - 'account-management'
             - 'budget-management'
@@ -19,8 +22,8 @@ spring:
             - 'mail'
             - 'password-management'
             - 'mvc'
-  zipkin:
-    enabled: false
+  main:
+    allow-bean-definition-overriding: true
 budget:
   chassis:
     http-logging:
